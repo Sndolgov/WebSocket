@@ -17,7 +17,10 @@ function connect() {
     stompClient.connect({}, function (frame) {
         setConnected(true);
         console.log('Connected: ' + frame);
-        stompClient.subscribe('/user/queue/product/changes', function (greeting) {
+        stompClient.subscribe('/user/queue/changes', function (greeting) {
+            showGreeting(JSON.parse(greeting.body).content);
+        });
+        stompClient.subscribe('/topic/greetings', function (greeting) {
             showGreeting(JSON.parse(greeting.body).content);
         });
     });

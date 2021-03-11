@@ -29,7 +29,7 @@ public class TestMessaging
                 SimpMessageHeaderAccessor headerAccessor = SimpMessageHeaderAccessor.create(SimpMessageType.MESSAGE);
                 headerAccessor.setSessionId(session);
                 headerAccessor.setLeaveMutable(true);
-                template.convertAndSendToUser(session,"/queue/product/changes", new Greeting("Hello world"), headerAccessor.getMessageHeaders());
+                template.convertAndSendToUser(session,"/queue/changes", new Greeting("Hello world"), headerAccessor.getMessageHeaders());
 
 //                template.convertAndSendToUser(session, "/topic/greetings", new Greeting("Hello world!"));
             }
